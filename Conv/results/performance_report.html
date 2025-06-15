@@ -1,0 +1,183 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    	<meta charset="UTF-8">
+        <title>DCU Convolution Performance Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 40px; }
+            .header { background-color: #f0f0f0; padding: 20px; border-radius: 5px; }
+            .section { margin: 20px 0; }
+            .table { border-collapse: collapse; width: 100%; }
+            .table th, .table td { border: 1px solid #ddd; padding: 8px; text-align: right; }
+            .table th { background-color: #f2f2f2; }
+            .highlight { background-color: #e8f5e8; }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>DCU Convolution Performance Report</h1>
+            <p>Generated on: 2025-06-13 14:33:30</p>
+            <p>Test Platform: 异构加速卡1 (16GB显存)</p>
+        </div>
+
+        <div class="section">
+            <h2>Test Summary</h2>
+            <p>Total test cases: 12</p>
+            <p>Average GPU Basic speedup: 43.73x</p>
+            <p>Average GPU Optimized speedup: 378.12x</p>
+            <p>Average GPU Tiled speedup: 362.23x</p>
+        </div>
+
+        <div class="section">
+            <h2>Detailed Results</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Test Case</th>
+                        <th>Input Size</th>
+                        <th>CPU Time (ms)</th>
+                        <th>GPU Basic (ms)</th>
+                        <th>GPU Optimized (ms)</th>
+                        <th>GPU Tiled (ms)</th>
+                        <th>Best Speedup</th>
+                    </tr>
+                </thead>
+                <tbody>
+    
+                    <tr>
+                        <td>Case 1</td>
+                        <td>1.0×3.0×32.0×32.0</td>
+                        <td>33.98</td>
+                        <td>47.86</td>
+                        <td>0.15</td>
+                        <td>0.12</td>
+                        <td class="highlight">295.46x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 2</td>
+                        <td>4.0×16.0×64.0×64.0</td>
+                        <td>84.38</td>
+                        <td>5.50</td>
+                        <td>2.81</td>
+                        <td>2.73</td>
+                        <td class="highlight">30.92x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 3</td>
+                        <td>8.0×32.0×128.0×128.0</td>
+                        <td>779.45</td>
+                        <td>43.81</td>
+                        <td>65.81</td>
+                        <td>51.52</td>
+                        <td class="highlight">17.79x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 4</td>
+                        <td>16.0×64.0×256.0×256.0</td>
+                        <td>34060.80</td>
+                        <td>600.97</td>
+                        <td>175.54</td>
+                        <td>175.06</td>
+                        <td class="highlight">194.57x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 5</td>
+                        <td>4.0×128.0×512.0×512.0</td>
+                        <td>152177.00</td>
+                        <td>2078.45</td>
+                        <td>362.74</td>
+                        <td>364.08</td>
+                        <td class="highlight">419.52x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 6</td>
+                        <td>2.0×256.0×512.0×512.0</td>
+                        <td>320531.00</td>
+                        <td>3795.99</td>
+                        <td>365.10</td>
+                        <td>364.38</td>
+                        <td class="highlight">879.67x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 7</td>
+                        <td>8.0×64.0×224.0×224.0</td>
+                        <td>19997.70</td>
+                        <td>441.93</td>
+                        <td>68.61</td>
+                        <td>67.93</td>
+                        <td class="highlight">294.39x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 8</td>
+                        <td>4.0×128.0×224.0×224.0</td>
+                        <td>22724.70</td>
+                        <td>535.69</td>
+                        <td>30.32</td>
+                        <td>30.15</td>
+                        <td class="highlight">753.67x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 9</td>
+                        <td>32.0×64.0×56.0×56.0</td>
+                        <td>1402.82</td>
+                        <td>28.02</td>
+                        <td>8.41</td>
+                        <td>8.38</td>
+                        <td class="highlight">167.32x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 10</td>
+                        <td>32.0×128.0×28.0×28.0</td>
+                        <td>1289.59</td>
+                        <td>22.95</td>
+                        <td>3.34</td>
+                        <td>11.81</td>
+                        <td class="highlight">386.57x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 11</td>
+                        <td>32.0×256.0×14.0×14.0</td>
+                        <td>1201.64</td>
+                        <td>22.94</td>
+                        <td>1.90</td>
+                        <td>1.90</td>
+                        <td class="highlight">632.45x</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Case 12</td>
+                        <td>32.0×512.0×7.0×7.0</td>
+                        <td>973.21</td>
+                        <td>32.20</td>
+                        <td>1.75</td>
+                        <td>1.75</td>
+                        <td class="highlight">556.76x</td>
+                    </tr>
+        
+                </tbody>
+            </table>
+        </div>
+    
+        <div class="section">
+            <h2>Performance Analysis</h2>
+            <h3>Key Findings:</h3>
+            <ul>
+                <li>Best performance achieved in Case 6 with 879.67x speedup</li>
+                <li>Tiled implementation shows average 41.55x improvement over basic GPU implementation</li>
+                <li>Memory optimization is crucial for large-scale convolutions</li>
+            </ul>
+        </div>
+    </body>
+    </html>
+    

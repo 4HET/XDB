@@ -1,0 +1,704 @@
+DCU Convolution Performance Benchmark
+Target Platform: 异构加速卡1 (16GB)
+Found 1 DCU device(s)
+Device: Vega 20 [Radeon Pro VII/Radeon Instinct MI50 32GB]
+Compute Capability: 9.0
+Global Memory: 15 GB
+Shared Memory per Block: 64 KB
+Max Threads per Block: 1024
+Using 32 CPU threads
+
+********************************************************************************
+TEST CASE 1 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 1
+  Input: 3x32x32
+  Kernel: 16x3x3x3
+  Output: 16x32x32
+  Memory requirement: 0 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 33.978 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 0 MB
+  Input: 0.0117188 MB
+  Kernel: 0.00164795 MB
+  Output: 0.0625 MB
+  Basic kernel...
+  Basic time: 47.859 ms
+  Optimized kernel...
+  Optimized time: 0.154 ms
+  Tiled kernel...
+  Tiled time: 0.115 ms
+
+Verifying results...
+Basic kernel verification: Max error: 1.07288e-06, Error count: 0/16384
+PASSED
+Optimized kernel verification: Max error: 1.07288e-06, Error count: 0/16384
+PASSED
+Tiled kernel verification: Max error: 1.07288e-06, Error count: 0/16384
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:                33.98 ms
+  GPU Basic:          47.86 ms  ✓
+  GPU Optimized:       0.15 ms  ✓
+  GPU Tiled:           0.12 ms  ✓
+
+Speedup vs CPU:
+  Basic:               0.71x
+  Optimized:         220.64x
+  Tiled:             295.46x
+
+GPU Optimizations:
+  Optimized vs Basic: 310.77x
+  Tiled vs Basic:     416.17x
+
+********************************************************************************
+TEST CASE 2 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 4
+  Input: 16x64x64
+  Kernel: 32x16x3x3
+  Output: 32x64x64
+  Memory requirement: 3 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 84.38 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 3 MB
+  Input: 1.00 MB
+  Kernel: 0.02 MB
+  Output: 2.00 MB
+  Basic kernel...
+  Basic time: 5.50 ms
+  Optimized kernel...
+  Optimized time: 2.81 ms
+  Tiled kernel...
+  Tiled time: 2.73 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/524288
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/524288
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/524288
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:                84.38 ms
+  GPU Basic:           5.50 ms  ✓
+  GPU Optimized:       2.81 ms  ✓
+  GPU Tiled:           2.73 ms  ✓
+
+Speedup vs CPU:
+  Basic:              15.33x
+  Optimized:          30.00x
+  Tiled:              30.92x
+
+GPU Optimizations:
+  Optimized vs Basic:   1.96x
+  Tiled vs Basic:       2.02x
+
+********************************************************************************
+TEST CASE 3 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 8
+  Input: 32x128x128
+  Kernel: 64x32x3x3
+  Output: 64x128x128
+  Memory requirement: 48 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 779.45 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 48 MB
+  Input: 16.00 MB
+  Kernel: 0.07 MB
+  Output: 32.00 MB
+  Basic kernel...
+  Basic time: 43.81 ms
+  Optimized kernel...
+  Optimized time: 65.81 ms
+  Tiled kernel...
+  Tiled time: 51.52 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/8388608
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/8388608
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/8388608
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:               779.45 ms
+  GPU Basic:          43.81 ms  ✓
+  GPU Optimized:      65.81 ms  ✓
+  GPU Tiled:          51.52 ms  ✓
+
+Speedup vs CPU:
+  Basic:              17.79x
+  Optimized:          11.84x
+  Tiled:              15.13x
+
+GPU Optimizations:
+  Optimized vs Basic:   0.67x
+  Tiled vs Basic:       0.85x
+
+********************************************************************************
+TEST CASE 4 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 16
+  Input: 64x256x256
+  Kernel: 128x64x3x3
+  Output: 128x256x256
+  Memory requirement: 768 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 34060.78 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 768 MB
+  Input: 256.00 MB
+  Kernel: 0.28 MB
+  Output: 512.00 MB
+  Basic kernel...
+  Basic time: 600.97 ms
+  Optimized kernel...
+  Optimized time: 175.54 ms
+  Tiled kernel...
+  Tiled time: 175.06 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/134217728
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/134217728
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/134217728
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:             34060.78 ms
+  GPU Basic:         600.97 ms  ✓
+  GPU Optimized:     175.54 ms  ✓
+  GPU Tiled:         175.06 ms  ✓
+
+Speedup vs CPU:
+  Basic:              56.68x
+  Optimized:         194.03x
+  Tiled:             194.57x
+
+GPU Optimizations:
+  Optimized vs Basic:   3.42x
+  Tiled vs Basic:       3.43x
+
+********************************************************************************
+TEST CASE 5 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 4
+  Input: 128x512x512
+  Kernel: 256x128x3x3
+  Output: 256x512x512
+  Memory requirement: 1537 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 152177.43 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 1537 MB
+  Input: 512.00 MB
+  Kernel: 1.12 MB
+  Output: 1024.00 MB
+  Basic kernel...
+  Basic time: 2078.45 ms
+  Optimized kernel...
+  Optimized time: 362.74 ms
+  Tiled kernel...
+  Tiled time: 364.08 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:            152177.43 ms
+  GPU Basic:        2078.45 ms  ✓
+  GPU Optimized:     362.74 ms  ✓
+  GPU Tiled:         364.08 ms  ✓
+
+Speedup vs CPU:
+  Basic:              73.22x
+  Optimized:         419.52x
+  Tiled:             417.98x
+
+GPU Optimizations:
+  Optimized vs Basic:   5.73x
+  Tiled vs Basic:       5.71x
+
+********************************************************************************
+TEST CASE 6 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 2
+  Input: 256x512x512
+  Kernel: 512x256x3x3
+  Output: 512x512x512
+  Memory requirement: 1540 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 320530.89 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 1540 MB
+  Input: 512.00 MB
+  Kernel: 4.50 MB
+  Output: 1024.00 MB
+  Basic kernel...
+  Basic time: 3795.99 ms
+  Optimized kernel...
+  Optimized time: 365.10 ms
+  Tiled kernel...
+  Tiled time: 364.38 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/268435456
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:            320530.89 ms
+  GPU Basic:        3795.99 ms  ✓
+  GPU Optimized:     365.10 ms  ✓
+  GPU Tiled:         364.38 ms  ✓
+
+Speedup vs CPU:
+  Basic:              84.44x
+  Optimized:         877.93x
+  Tiled:             879.67x
+
+GPU Optimizations:
+  Optimized vs Basic:  10.40x
+  Tiled vs Basic:      10.42x
+
+********************************************************************************
+TEST CASE 7 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 8
+  Input: 64x224x224
+  Kernel: 128x64x5x5
+  Output: 128x224x224
+  Memory requirement: 294 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 19997.67 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 294 MB
+  Input: 98.00 MB
+  Kernel: 0.78 MB
+  Output: 196.00 MB
+  Basic kernel...
+  Basic time: 441.93 ms
+  Optimized kernel...
+  Optimized time: 68.61 ms
+  Tiled kernel...
+  Tiled time: 67.93 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/51380224
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/51380224
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/51380224
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:             19997.67 ms
+  GPU Basic:         441.93 ms  ✓
+  GPU Optimized:      68.61 ms  ✓
+  GPU Tiled:          67.93 ms  ✓
+
+Speedup vs CPU:
+  Basic:              45.25x
+  Optimized:         291.49x
+  Tiled:             294.39x
+
+GPU Optimizations:
+  Optimized vs Basic:   6.44x
+  Tiled vs Basic:       6.51x
+
+********************************************************************************
+TEST CASE 8 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 4
+  Input: 128x224x224
+  Kernel: 256x128x7x7
+  Output: 256x112x112
+  Memory requirement: 153 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 22724.67 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 153 MB
+  Input: 98.00 MB
+  Kernel: 6.12 MB
+  Output: 49.00 MB
+  Basic kernel...
+  Basic time: 535.69 ms
+  Optimized kernel...
+  Optimized time: 30.32 ms
+  Tiled kernel...
+  Tiled time: 30.15 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/12845056
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/12845056
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/12845056
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:             22724.67 ms
+  GPU Basic:         535.69 ms  ✓
+  GPU Optimized:      30.32 ms  ✓
+  GPU Tiled:          30.15 ms  ✓
+
+Speedup vs CPU:
+  Basic:              42.42x
+  Optimized:         749.49x
+  Tiled:             753.67x
+
+GPU Optimizations:
+  Optimized vs Basic:  17.67x
+  Tiled vs Basic:      17.77x
+
+********************************************************************************
+TEST CASE 9 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 32
+  Input: 64x56x56
+  Kernel: 64x64x3x3
+  Output: 64x56x56
+  Memory requirement: 49 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 1402.82 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 49 MB
+  Input: 24.50 MB
+  Kernel: 0.14 MB
+  Output: 24.50 MB
+  Basic kernel...
+  Basic time: 28.02 ms
+  Optimized kernel...
+  Optimized time: 8.41 ms
+  Tiled kernel...
+  Tiled time: 8.38 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/6422528
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/6422528
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/6422528
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:              1402.82 ms
+  GPU Basic:          28.02 ms  ✓
+  GPU Optimized:       8.41 ms  ✓
+  GPU Tiled:           8.38 ms  ✓
+
+Speedup vs CPU:
+  Basic:              50.06x
+  Optimized:         166.72x
+  Tiled:             167.32x
+
+GPU Optimizations:
+  Optimized vs Basic:   3.33x
+  Tiled vs Basic:       3.34x
+
+********************************************************************************
+TEST CASE 10 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 32
+  Input: 128x28x28
+  Kernel: 128x128x3x3
+  Output: 128x28x28
+  Memory requirement: 25 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 1289.59 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 25 MB
+  Input: 12.25 MB
+  Kernel: 0.56 MB
+  Output: 12.25 MB
+  Basic kernel...
+  Basic time: 22.95 ms
+  Optimized kernel...
+  Optimized time: 3.34 ms
+  Tiled kernel...
+  Tiled time: 11.81 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/3211264
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/3211264
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/3211264
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:              1289.59 ms
+  GPU Basic:          22.95 ms  ✓
+  GPU Optimized:       3.34 ms  ✓
+  GPU Tiled:          11.81 ms  ✓
+
+Speedup vs CPU:
+  Basic:              56.20x
+  Optimized:         386.57x
+  Tiled:             109.16x
+
+GPU Optimizations:
+  Optimized vs Basic:   6.88x
+  Tiled vs Basic:       1.94x
+
+********************************************************************************
+TEST CASE 11 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 32
+  Input: 256x14x14
+  Kernel: 256x256x3x3
+  Output: 256x14x14
+  Memory requirement: 14 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 1201.64 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 14 MB
+  Input: 6.12 MB
+  Kernel: 2.25 MB
+  Output: 6.12 MB
+  Basic kernel...
+  Basic time: 22.94 ms
+  Optimized kernel...
+  Optimized time: 1.90 ms
+  Tiled kernel...
+  Tiled time: 1.90 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/1605632
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/1605632
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/1605632
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:              1201.64 ms
+  GPU Basic:          22.94 ms  ✓
+  GPU Optimized:       1.90 ms  ✓
+  GPU Tiled:           1.90 ms  ✓
+
+Speedup vs CPU:
+  Basic:              52.39x
+  Optimized:         632.44x
+  Tiled:             632.11x
+
+GPU Optimizations:
+  Optimized vs Basic:  12.07x
+  Tiled vs Basic:      12.07x
+
+********************************************************************************
+TEST CASE 12 / 12
+********************************************************************************
+
+================================================================================
+Running Convolution Benchmark
+================================================================================
+Configuration:
+  Batch size: 32
+  Input: 512x7x7
+  Kernel: 512x512x3x3
+  Output: 512x7x7
+  Memory requirement: 15 MB
+
+Generating test data...
+
+Running CPU convolution...
+CPU time: 973.21 ms
+
+Running GPU convolutions...
+GPU Memory allocated: 15 MB
+  Input: 3.06 MB
+  Kernel: 9.00 MB
+  Output: 3.06 MB
+  Basic kernel...
+  Basic time: 32.20 ms
+  Optimized kernel...
+  Optimized time: 1.75 ms
+  Tiled kernel...
+  Tiled time: 1.75 ms
+
+Verifying results...
+Basic kernel verification: Max error: 0.00, Error count: 0/802816
+PASSED
+Optimized kernel verification: Max error: 0.00, Error count: 0/802816
+PASSED
+Tiled kernel verification: Max error: 0.00, Error count: 0/802816
+PASSED
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Execution Times:
+  CPU:               973.21 ms
+  GPU Basic:          32.20 ms  ✓
+  GPU Optimized:       1.75 ms  ✓
+  GPU Tiled:           1.75 ms  ✓
+
+Speedup vs CPU:
+  Basic:              30.23x
+  Optimized:         556.76x
+  Tiled:             556.44x
+
+GPU Optimizations:
+  Optimized vs Basic:  18.42x
+  Tiled vs Basic:      18.41x
+
+================================================================================
+OVERALL STATISTICS
+================================================================================
+Average Speedups:
+  Basic GPU:     43.73x
+  Optimized GPU: 378.12x
+  Tiled GPU:     362.23x
+
+Results saved to: results/convolution_results.csv
+Benchmark completed successfully!
